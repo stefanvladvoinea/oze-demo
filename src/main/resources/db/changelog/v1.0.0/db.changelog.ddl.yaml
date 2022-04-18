@@ -1,0 +1,59 @@
+databaseChangeLog:
+- changeSet:
+    id: ddl-1
+    author: stefan
+    description: Create required tables
+    changes:
+    -  createTable:
+        columns: 
+        -  column:
+            name: id
+            type: int
+            autoIncrement: true
+            constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: staff_members_pk
+        -  column:
+            name: name
+            type: varchar(255)
+            constraints:
+                nullable: false
+        -  column:
+            name: uuid
+            type: uuid
+            constraints:
+                nullable: false
+                unique: true
+        -  column:
+            name: registration_date
+            type: timestamp
+            constraints:
+                nullable: false
+        tableName: staff_members
+    -  createTable:
+        columns: 
+        -  column:
+            name: id
+            type: int
+            autoIncrement: true
+            constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: patients_pk
+        -  column:
+            name: name
+            type: varchar(255)
+            constraints:
+                nullable: false
+        -  column:
+            name: age
+            type: int
+            constraints:
+                nullable: false
+        -  column:
+            name: last_visit_date
+            type: timestamp
+            constraints:
+                nullable: false
+        tableName: patients
